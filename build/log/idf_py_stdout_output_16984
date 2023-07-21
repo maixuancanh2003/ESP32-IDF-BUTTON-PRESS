@@ -1,0 +1,58 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\ESP32_IDF\hello_world\build\bootloader\esp-idf\esptool_py && D:\ESP32_IDF\Espressif\python_env\idf5.0_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.0.2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/ESP32_IDF/hello_world/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6710 bytes. 0x8f0 bytes (8%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/hello_world_main.c.obj
+In file included from D:/ESP32_IDF/hello_world/main/hello_world_main.c:6:
+D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.0.2/components/driver/deprecated/driver/adc.h:19:2: warning: #warning "legacy adc driver is deprecated, please migrate to use esp_adc/adc_oneshot.h and esp_adc/adc_continuous.h for oneshot mode and continuous mode drivers respectively" [-Wcpp]
+   19 | #warning "legacy adc driver is deprecated, please migrate to use esp_adc/adc_oneshot.h and esp_adc/adc_continuous.h for oneshot mode and continuous mode drivers respectively"
+      |  ^~~~~~~
+[3/8] Linking C static library esp-idf\main\libmain.a
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable hello_world.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.5.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated D:/ESP32_IDF/hello_world/build/hello_world.bin
+[7/8] cmd.exe /C "cd /D D:\ESP32_IDF\hello_world\build\esp-idf\esptool_py && D:\ESP32_IDF\Espressif\python_env\idf5.0_py3.11_env\Scripts\python.exe D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.0.2/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/ESP32_IDF/hello_world/build/partition_table/partition-table.bin D:/ESP32_IDF/hello_world/build/hello_world.bin"
+hello_world.bin binary size 0x2d020 bytes. Smallest app partition is 0x100000 bytes. 0xd2fe0 bytes (82%) free.
+[7/8] cmd.exe /C "cd /D D:\ESP32_IDF\Espressif\frameworks\esp-idf-v5.0.2\components\esptool_py && D:\ESP32_IDF\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.0.2 -D SERIAL_TOOL=D:/ESP32_IDF/Espressif/python_env/idf5.0_py3.11_env/Scripts/python.exe;;D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.0.2/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=D:/ESP32_IDF/hello_world/build -P D:/ESP32_IDF/Espressif/frameworks/esp-idf-v5.0.2/components/esptool_py/run_serial_tool.cmake"
+esptool esp32 -p COM20 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 hello_world.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.5.1
+Serial port COM20
+Connecting.....................
+Chip is ESP32-D0WDQ6 (revision v1.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 08:3a:f2:73:10:80
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x0003dfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26384 bytes to 16453...
+Writing at 0x00001000... (50 %)
+Writing at 0x000076ac... (100 %)
+Wrote 26384 bytes (16453 compressed) at 0x00001000 in 0.9 seconds (effective 235.4 kbit/s)...
+Hash of data verified.
+Compressed 184352 bytes to 97013...
+Writing at 0x00010000... (16 %)
+Writing at 0x0001bcc2... (33 %)
+Writing at 0x0002162d... (50 %)
+Writing at 0x00026f85... (66 %)
+Writing at 0x0002fb97... (83 %)
+Writing at 0x00037824... (100 %)
+Wrote 184352 bytes (97013 compressed) at 0x00010000 in 2.9 seconds (effective 500.9 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 288.4 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
